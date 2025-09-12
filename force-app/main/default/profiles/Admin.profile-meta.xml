@@ -116,7 +116,7 @@
         <visible>true</visible>
     </applicationVisibilities>
     <custom>false</custom>
-    <fieldPermissions>
+    <!-- <fieldPermissions>
         <editable>true</editable>
         <field>Application_Contact__c.Contact__c</field>
         <readable>true</readable>
@@ -130,7 +130,7 @@
         <editable>true</editable>
         <field>Application_Contact__c.Notes__c</field>
         <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions> -->
     <fieldPermissions>
         <editable>true</editable>
         <field>Job_Posting__c.Company_Name__c</field>
