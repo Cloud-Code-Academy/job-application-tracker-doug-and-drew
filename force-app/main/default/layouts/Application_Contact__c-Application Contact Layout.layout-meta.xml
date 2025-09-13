@@ -20,6 +20,10 @@
                 <behavior>Required</behavior>
                 <field>Job_Application__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Is_Primary__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
