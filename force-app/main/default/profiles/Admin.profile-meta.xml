@@ -118,11 +118,6 @@
     <custom>false</custom>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Contact__c.Contact__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Application_Contact__c.Notes__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -139,11 +134,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Job_Application__c.Follow_up_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Job_Application__c.Job_Posting__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
