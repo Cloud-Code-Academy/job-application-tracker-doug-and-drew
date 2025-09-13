@@ -15,7 +15,7 @@
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
-    <applicationVisibilities>
+    <applicationVisibilities>        
         <application>standard__Chatter</application>
         <default>false</default>
         <visible>true</visible>
@@ -208,7 +208,6 @@
         <modifyAllRecords>true</modifyAllRecords>
         <object>Application_Contact__c</object>
         <viewAllRecords>true</viewAllRecords>
-        <viewAllFields>true</viewAllFields>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -218,7 +217,6 @@
         <modifyAllRecords>true</modifyAllRecords>
         <object>Job_Application__c</object>
         <viewAllRecords>true</viewAllRecords>
-        <viewAllFields>true</viewAllFields>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -228,7 +226,6 @@
         <modifyAllRecords>true</modifyAllRecords>
         <object>Job_Posting__c</object>
         <viewAllRecords>true</viewAllRecords>
-        <viewAllFields>true</viewAllFields>
     </objectPermissions>
     <tabVisibilities>
         <tab>Application_Contact__c</tab>
