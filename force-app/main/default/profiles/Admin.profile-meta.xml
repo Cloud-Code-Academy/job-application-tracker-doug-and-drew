@@ -123,12 +123,42 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Contact__c.Job_Application__c</field>
+        <field>Application_Contact__c.Notes__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Contact__c.Notes__c</field>
+        <field>Job_Application__c.Applicant__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Job_Application__c.Application_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Job_Application__c.Follow_up_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Job_Application__c.Job_Posting__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Job_Application__c.Notes__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Job_Application__c.Rating__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Job_Application__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -165,6 +195,9 @@
         <layout>Application_Contact__c-Application Contact Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Job_Application__c-Job Application Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Job_Posting__c-Job Layout</layout>
     </layoutAssignments>
     <objectPermissions>
@@ -175,6 +208,17 @@
         <modifyAllRecords>true</modifyAllRecords>
         <object>Application_Contact__c</object>
         <viewAllRecords>true</viewAllRecords>
+        <viewAllFields>true</viewAllFields>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Job_Application__c</object>
+        <viewAllRecords>true</viewAllRecords>
+        <viewAllFields>true</viewAllFields>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -184,9 +228,14 @@
         <modifyAllRecords>true</modifyAllRecords>
         <object>Job_Posting__c</object>
         <viewAllRecords>true</viewAllRecords>
+        <viewAllFields>true</viewAllFields>
     </objectPermissions>
     <tabVisibilities>
         <tab>Application_Contact__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Job_Application__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
