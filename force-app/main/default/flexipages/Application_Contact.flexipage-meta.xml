@@ -47,6 +47,16 @@
                 <identifier>RecordContact_rAccountIdField2</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Is_Primary__c</fieldItem>
+                <identifier>RecordIs_Primary_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-94ba8cd6-7162-4c5a-9ade-8a84cbd8f75f</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -113,6 +123,16 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Contact__c</fieldItem>
                 <identifier>RecordContact_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Is_Primary__c</fieldItem>
+                <identifier>RecordIs_Primary__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
