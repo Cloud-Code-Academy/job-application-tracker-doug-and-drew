@@ -35,10 +35,7 @@ public with sharing class JobApplicationTriggerHandler extends TriggerHandler {
 
     public override void afterUpdate(){ 
         
-        JobApplicationHelper.applyingStatusTasks(oldJobAppsMap, newJobAppsList);
-        JobApplicationHelper.appliedStatusTasks(oldJobAppsMap, newJobAppsList);
-        JobApplicationHelper.interviewingStatusTasks(oldJobAppsMap, newJobAppsList);
-        JobApplicationHelper.negotiatingStatusTasks(oldJobAppsMap, newJobAppsList);
+        JobApplicationHelper.statusTasks(oldJobAppsMap, newJobAppsList);
         
     }
 
