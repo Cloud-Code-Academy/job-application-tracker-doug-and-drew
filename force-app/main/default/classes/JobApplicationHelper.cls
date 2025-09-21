@@ -16,6 +16,8 @@ public with sharing class JobApplicationHelper {
         'Accepted', 'Closed'
     };
 
+    // Map to contain Custom Metadata templates if needed
+    private static Map<String, List<Job_Application_Task_Template__mdt>> templatesByStatus;
 
     // BEFORE_INSERT
 
@@ -156,26 +158,7 @@ public with sharing class JobApplicationHelper {
 
             if (app.Status__c == 'Saved') {
 
-                Task tsk1 = new Task();
-                tsk1.Subject = 'Check if the job description aligns with your interests and values';
-                tsk1.WhatId = app.Id;
-                tsk1.OwnerId = app.Applicant__c;
-                tsk1.ActivityDate = Date.today().addDays(1);
-                newTasks.add(tsk1);
-
-                Task tsk2 = new Task();
-                tsk2.Subject = 'Review the highlighted skills to see if the role is a good fit';
-                tsk2.WhatId = app.Id;
-                tsk2.OwnerId = app.Applicant__c;
-                tsk2.ActivityDate = Date.today().addDays(1);
-                newTasks.add(tsk2);
-
-                Task tsk3 = new Task();
-                tsk3.Subject = 'Research the company or role and mark your excitement level';
-                tsk3.WhatId = app.Id;
-                tsk3.OwnerId = app.Applicant__c;
-                tsk3.ActivityDate = Date.today().addDays(1);
-                newTasks.add(tsk3);
+                newTasks.addAll(buildTasksFromTemplates(app));
             }
         }
         if (!newTasks.isEmpty()) {
@@ -228,15 +211,19 @@ public with sharing class JobApplicationHelper {
             if (newRank < oldRank) {
                 app.addError('Status cannot be moved backward from ' + oldStatus + ' to ' + newStatus + '.');
             }
+
+            // Allow forward status changes by one status only
+            if (newRank > oldRank + 1) {
+                app.addError('Please move the status one step at a time (from ' + oldStatus + ' to the next stage).');
+                continue;
+            }
         }
     }
 
 
     //AFTER_UPDATE
 
-    // Status = APPLYING
-
-    public static void applyingStatusTasks(Map<Id, Job_Application__c> oldJobAppsMap, List<Job_Application__c> newJobApps){
+    public static void statusTasks(Map<Id, Job_Application__c> oldJobAppsMap, List<Job_Application__c> newJobApps){
 
         List<Task> newTasks = new List<Task>();
 
@@ -244,187 +231,20 @@ public with sharing class JobApplicationHelper {
 
             Job_Application__c oldApp = oldJobAppsMap.get(app.Id);
 
-            if (app.Status__c != oldApp.Status__c && oldApp.Status__c == 'Saved' && app.Status__c == 'Applying') {
+            if (oldApp == null) {
+                continue;
+            }
+
+            if (app.Status__c != oldApp.Status__c) {
                 
-                Task tsk1 = new Task();
-                tsk1.Subject = 'Find and research someone who works at the company and add them as a contact';
-                tsk1.WhatId = app.Id;
-                tsk1.OwnerId = app.Applicant__c;
-                tsk1.ActivityDate = Date.today().addDays(1);
-                newTasks.add(tsk1);
+                newTasks.addAll(buildTasksFromTemplates(app));
 
-                Task tsk2 = new Task();
-                tsk2.Subject = 'Set up an informational interview to learn more about the role/company';
-                tsk2.WhatId = app.Id;
-                tsk2.OwnerId = app.Applicant__c;
-                tsk2.ActivityDate = Date.today().addDays(2);
-                newTasks.add(tsk2);
-
-                Task tsk3 = new Task();
-                tsk3.Subject = 'Identify potential referrals to help get your application on the top of the pile';
-                tsk3.WhatId = app.Id;
-                tsk3.OwnerId = app.Applicant__c;
-                tsk3.ActivityDate = Date.today().addDays(1);
-                newTasks.add(tsk3);
-
-                Task tsk4 = new Task();
-                tsk4.Subject = 'Customize your work achievements using the job description keywords';
-                tsk4.WhatId = app.Id;
-                tsk4.OwnerId = app.Applicant__c;
-                tsk4.ActivityDate = Date.today().addDays(1);
-                newTasks.add(tsk4);
-
-                Task tsk5 = new Task();
-                tsk5.Subject = 'Submit your application on the company website if possible';
-                tsk5.WhatId = app.Id;
-                tsk5.OwnerId = app.Applicant__c;
-                tsk5.ActivityDate = Date.today().addDays(2);
-                newTasks.add(tsk5);
             }
         }
         if (!newTasks.isEmpty()) {
             insert newTasks;
         }
     }
-
-    // Status = APPLIED
-
-    public static void appliedStatusTasks(Map<Id, Job_Application__c> oldJobAppsMap, List<Job_Application__c> newJobApps){
-
-        List<Task> newTasks = new List<Task>();
-
-        for (Job_Application__c app : newJobApps) {
-
-            Job_Application__c oldApp = oldJobAppsMap.get(app.Id);
-
-            if (app.Status__c != oldApp.Status__c && oldApp.Status__c == 'Applying' && app.Status__c == 'Applied') {
-
-                Task tsk1 = new Task();
-                tsk1.Subject = 'Reach out to the hiring manager or recruiter';
-                tsk1.WhatId = app.Id;
-                tsk1.OwnerId = app.Applicant__c;
-                tsk1.ActivityDate = Date.today().addDays(1);
-                newTasks.add(tsk1);
-
-                Task tsk2 = new Task();
-                tsk2.Subject = 'Follow up on your application via email weekly';
-                tsk2.WhatId = app.Id;
-                tsk2.OwnerId = app.Applicant__c;
-                tsk2.ActivityDate = Date.today().addDays(7);
-                newTasks.add(tsk2);
-
-                Task tsk3 = new Task();
-                tsk3.Subject = 'Continue identifying and saving similar job opportunities';
-                tsk3.WhatId = app.Id;
-                tsk3.OwnerId = app.Applicant__c;
-                tsk3.ActivityDate = Date.today().addDays(1);
-                newTasks.add(tsk3);
-
-                Task tsk4 = new Task();
-                tsk4.Subject = 'Set up weekly networking calls to explore similar companies/roles';
-                tsk4.WhatId = app.Id;
-                tsk4.OwnerId = app.Applicant__c;
-                tsk4.ActivityDate = Date.today().addDays(7);
-                newTasks.add(tsk4);
-            }
-        }
-        if (!newTasks.isEmpty()) {
-            insert newTasks;
-        }
-    }
-
-    // Status = INTERVIEWING
-
-    public static void interviewingStatusTasks(Map<Id, Job_Application__c> oldJobAppsMap, List<Job_Application__c> newJobApps){
-
-        List<Task> newTasks = new List<Task>();
-
-        for (Job_Application__c app : newJobApps) {
-
-            Job_Application__c oldApp = oldJobAppsMap.get(app.Id);
-
-            if (app.Status__c != oldApp.Status__c && oldApp.Status__c == 'Applied' && app.Status__c == 'Interviewing') {
-
-                Task tsk1 = new Task();
-                tsk1.Subject = 'Prepare your blurb or “tell me about yourself” response';
-                tsk1.WhatId = app.Id;
-                tsk1.OwnerId = app.Applicant__c;
-                tsk1.ActivityDate = Date.today().addDays(1);
-                newTasks.add(tsk1);
-
-                Task tsk2 = new Task();
-                tsk2.Subject = 'Practice answering behavioral interview questions';
-                tsk2.WhatId = app.Id;
-                tsk2.OwnerId = app.Applicant__c;
-                tsk2.ActivityDate = Date.today().addDays(2);
-                newTasks.add(tsk2);
-
-                Task tsk3 = new Task();
-                tsk3.Subject = 'Research the company and your interviewers';
-                tsk3.WhatId = app.Id;
-                tsk3.OwnerId = app.Applicant__c;
-                tsk3.ActivityDate = Date.today().addDays(1);
-                newTasks.add(tsk3);
-
-                Task tsk4 = new Task();
-                tsk4.Subject = 'Set up your virtual interview space and test your tech';
-                tsk4.WhatId = app.Id;
-                tsk4.OwnerId = app.Applicant__c;
-                tsk4.ActivityDate = Date.today().addDays(1);
-                newTasks.add(tsk4);
-
-                Task tsk5 = new Task();
-                tsk5.Subject = 'Send thank you emails within 24 hours';
-                tsk5.WhatId = app.Id;
-                tsk5.OwnerId = app.Applicant__c;
-                tsk5.ActivityDate = Date.today().addDays(1);
-                newTasks.add(tsk5);
-            }
-        }
-        if (!newTasks.isEmpty()) {
-            insert newTasks;
-        }
-    }
-
-    // Status = NEGOTIATING
-
-    public static void negotiatingStatusTasks(Map<Id, Job_Application__c> oldJobAppsMap, List<Job_Application__c> newJobApps){
-
-        List<Task> newTasks = new List<Task>();
-
-        for (Job_Application__c app : newJobApps) {
-
-            Job_Application__c oldApp = oldJobAppsMap.get(app.Id);
-
-            if (app.Status__c != oldApp.Status__c && oldApp.Status__c == 'Interviewing' && app.Status__c == 'Negotiating') {
-
-                Task tsk1 = new Task();
-                tsk1.Subject = 'Research your market value and know your numbers';
-                tsk1.WhatId = app.Id;
-                tsk1.OwnerId = app.Applicant__c;
-                tsk1.ActivityDate = Date.today().addDays(1);
-                newTasks.add(tsk1);
-
-                Task tsk2 = new Task();
-                tsk2.Subject = 'Prepare your negotiation scripts';
-                tsk2.WhatId = app.Id;
-                tsk2.OwnerId = app.Applicant__c;
-                tsk2.ActivityDate = Date.today().addDays(2);
-                newTasks.add(tsk2);
-
-                Task tsk3 = new Task();
-                tsk3.Subject = 'Evaluate your offer and decline or accept';
-                tsk3.WhatId = app.Id;
-                tsk3.OwnerId = app.Applicant__c;
-                tsk3.ActivityDate = Date.today().addDays(1);
-                newTasks.add(tsk3);
-            }
-        }
-        if (!newTasks.isEmpty()) {
-            insert newTasks;
-        }
-    }
-
 
     //BEFORE_DELETE
 
@@ -433,5 +253,71 @@ public with sharing class JobApplicationHelper {
     //AFTER_UNDELETE
 
     // Helper Methods:
+
+    // Retrieve(Lazy-load) all active Job_Application_Task_Template__mdt Templates once.
+    // Sort the templates using a Map where the Key = Status and Value = List of Templates 
+    private static void loadTaskTemplatesIfNeeded() {
+        if (templatesByStatus != null) {
+            return;
+        }
+
+        templatesByStatus = new Map<String, List<Job_Application_Task_Template__mdt>>();
+
+        // One SOQL for all templates
+        List<Job_Application_Task_Template__mdt> templateList = [
+            SELECT Status__c, Subject__c, DaysOffset__c, Priority__c, Sort_Order__c, DeveloperName
+            FROM Job_Application_Task_Template__mdt
+            WHERE Active__c = true
+            ORDER BY Status__c ASC, Sort_Order__c ASC, DeveloperName ASC
+        ];
+        // for each template, we add the template to the list of templates in the map, with the key being the status of the template
+        for (Job_Application_Task_Template__mdt template : templateList) {
+            List<Job_Application_Task_Template__mdt> bucket = templatesByStatus.get(template.Status__c);
+            // If this is the first template in the status list(bucket) then we create a new list.
+            // adding the null check prevents NPE for the first item by status
+            // there will be a bucket list for every status listed in the templates
+            if (bucket == null) {
+                bucket = new List<Job_Application_Task_Template__mdt>();
+                templatesByStatus.put(template.Status__c, bucket);
+            }
+            // there is no need to use the put function for the map, as we are adding each template to the corresponding list(value) within
+            // the map to the corresponding status(key)
+            bucket.add(template);
+        }
+    }
+
+    // Get Job_Application_Task_Template__mdt Templates for a specific status
+    private static List<Job_Application_Task_Template__mdt> templatesForStatus(String status) {
+        // Call the method to query and sort all the templates into a Map by Status
+        loadTaskTemplatesIfNeeded();
+        //Create a list to filter only the templates needed for the status in the argument
+        List<Job_Application_Task_Template__mdt> bucket = templatesByStatus.get(status);
+        // If the bucket is null return an empty list, else return the list of templates
+        return (bucket == null) ? new List<Job_Application_Task_Template__mdt>() : bucket;
+    }
+
+    // Task Builder from mdt templates, based on the current status of the Job Application
+    public static List<Task> buildTasksFromTemplates(Job_Application__c app) {
+        List<Task> output = new List<Task>();
+        if (app == null || app.Id == null || String.isBlank(app.Status__c) || app.Applicant__c == null) {
+            return output; // nothing to return / protects against bad inputs
+        }
+        // iterate through the templates to create tasks.  templatesForStatus method can be called in the header
+        // to create the list of templates based on app status.
+        for (Job_Application_Task_Template__mdt template : templatesForStatus(app.Status__c)) {
+            Integer offset = (template.DaysOffset__c == null) ? 0 : (Integer)template.DaysOffset__c;
+            Task tsk = new Task(
+                WhatId = app.Id,
+                OwnerId = app.Applicant__c,
+                Subject = template.Subject__c,
+                ActivityDate = Date.today().addDays(offset)
+            );
+            if (!String.isBlank(template.Priority__c)) {
+                tsk.Priority = template.Priority__c;
+            }
+            output.add(tsk);
+        }
+        return output;
+    }
     
 }
