@@ -15,24 +15,32 @@ public with sharing class JobApplicationTriggerHandler extends TriggerHandler {
     public override void beforeInsert(){ 
 
         JobApplicationHelper.setStatusToSaved(newJobAppsList);
+        JobApplicationHelper.checkValueForApplicantAndPosting(newJobAppsList);
+        JobApplicationHelper.setApplicationDate(newJobAppsList);
 
     }
 
     public override void afterInsert(){
         
         JobApplicationHelper.savedStatusTasks(newJobAppsList);
+        JobApplicationHelper.setPrimaryContact(newJobAppsList);
         
     }
 
-    /* public override void beforeUpdate(){ 
+    public override void beforeUpdate(){ 
         
+        JobApplicationHelper.preventStatusReversal(oldJobAppsMap, newJobAppsList);
         
-    } */
+    } 
 
-    /* public override void afterUpdate(){ 
+    public override void afterUpdate(){ 
         
+        JobApplicationHelper.applyingStatusTasks(oldJobAppsMap, newJobAppsList);
+        JobApplicationHelper.appliedStatusTasks(oldJobAppsMap, newJobAppsList);
+        JobApplicationHelper.interviewingStatusTasks(oldJobAppsMap, newJobAppsList);
+        JobApplicationHelper.negotiatingStatusTasks(oldJobAppsMap, newJobAppsList);
         
-    } */
+    }
 
     /* public override void beforeDelete(){ 
         
