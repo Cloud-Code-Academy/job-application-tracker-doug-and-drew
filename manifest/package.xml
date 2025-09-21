@@ -68,5 +68,18 @@
         <members>*</members>
         <name>PathAssistant</name>
     </types>
+    <types>
+        <members>JoobleAPI</members>
+        <name>NamedCredential</name>
+    </types>
+    <types>
+        <members>Jooble</members>
+        <name>ExternalCredential</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>PermissionSet</name>
+    </types>
+    
     <version>58.0</version>
 </Package>
