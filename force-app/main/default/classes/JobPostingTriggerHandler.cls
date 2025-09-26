@@ -12,7 +12,7 @@ public with sharing class JobPostingTriggerHandler extends TriggerHandler{
         this.oldJobPostingMap = (Map<Id,Job_Posting__c>)Trigger.oldMap;
     }
 
-    public override void afterInsert() { 
+    public override void beforeInsert() { 
 
         JobPostingTriggerHelper.matchAndCreateAccounts(newJobPostingList);
         
