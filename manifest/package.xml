@@ -28,6 +28,10 @@
         <members>*</members>
         <name>CustomObject</name>
     </types>
+    <types>
+        <members>Job_Application_Task_Template__mdt.*</members> <!-- or * for all CMDT records -->
+        <name>CustomMetadata</name>
+    </types>
     <types> 
         <members>*</members>
         <name>CustomApplication</name>
@@ -37,8 +41,20 @@
         <name>CustomTab</name>
     </types>
     <types>
+        <members>*</members>   
+        <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>*</members>   
+        <name>Layout</name>
+    </types>
+    <types>
         <members>*</members>
         <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>PermissionSet</name>
     </types>
     <types>
         <members>*</members>

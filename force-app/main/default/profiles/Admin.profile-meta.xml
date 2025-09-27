@@ -15,7 +15,7 @@
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
-    <applicationVisibilities>        
+    <applicationVisibilities>
         <application>standard__Chatter</application>
         <default>false</default>
         <visible>true</visible>
@@ -159,6 +159,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Job_Posting__c.Company_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Job_Posting__c.Company_Name_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
