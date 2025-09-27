@@ -79,7 +79,20 @@
     <types>
         <members>*</members>
         <name>PermissionSet</name>
+    </types><types>
+        <members>*</members> 
+        <name>FlowDefinition</name>
+    </types><types>
+        <members>*</members> 
+        <name>Flow</name>
+    </types><types>
+        <members>*</members> 
+        <name>Weblink</name>
+    </types>
+    <types>
+        <members>*</members> 
+        <name>QuickAction</name>
     </types>
     
-    <version>58.0</version>
+    <version>64.0</version>
 </Package>
