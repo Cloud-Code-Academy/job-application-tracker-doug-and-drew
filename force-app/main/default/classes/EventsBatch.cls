@@ -1,6 +1,6 @@
 public with sharing class EventsBatch implements  Database.Batchable<SObject> {
     public Database.QueryLocator start(Database.BatchableContext bc) {
-        return Database.getQueryLocator([SELECT Id, WhatId, WhoId, Subject, StartDateTime, EndDateTime, MeetingLink__c, Location, OwnerId, Owner.Email
+        return Database.getQueryLocator([SELECT Id, WhatId, WhoId, Subject, StartDateTime, EndDateTime, MeetingLink__c, Location, OwnerId, Owner.Email, Description
                                      FROM Event 
                                      WHERE StartDateTime > :System.now() 
                                      AND StartDateTime < :System.now().addhours(25) 
