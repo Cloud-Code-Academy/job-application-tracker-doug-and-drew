@@ -4,9 +4,19 @@
     <deleteConstraint>SetNull</deleteConstraint>
     <externalId>false</externalId>
     <label>Applicant</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>$User.Id</field>
+            <operation>equals</operation>
+            <valueField>User.Id</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
     <referenceTo>User</referenceTo>
     <relationshipName>Job_Applications</relationshipName>
     <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Lookup</type>
