@@ -41,6 +41,17 @@
         <name>CustomTab</name>
     </types>
     <types>
+        <members>Jooble</members>
+        <name>ExternalCredential</name>
+    </types>
+    <types>
+        <members>*</members> 
+        <name>FlowDefinition</name>
+    </types><types>
+        <members>*</members> 
+        <name>Flow</name>
+    </types>
+    <types>
         <members>*</members>   
         <name>FlexiPage</name>
     </types>
@@ -53,6 +64,14 @@
         <name>LightningComponentBundle</name>
     </types>
     <types>
+        <members>JoobleAPI</members>
+        <name>NamedCredential</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>PathAssistant</name>
+    </types>
+    <types>
         <members>*</members>
         <name>PermissionSet</name>
     </types>
@@ -61,37 +80,20 @@
         <name>Profile</name>
     </types>
     <types>
+        <members>*</members> 
+        <name>QuickAction</name>
+    </types>
+    <types>
         <members>*</members>
         <name>StaticResource</name>
     </types>
     <types>
         <members>*</members>
-        <name>PathAssistant</name>
+        <name>StandardValueSet</name>
     </types>
     <types>
-        <members>JoobleAPI</members>
-        <name>NamedCredential</name>
-    </types>
-    <types>
-        <members>Jooble</members>
-        <name>ExternalCredential</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>PermissionSet</name>
-    </types><types>
-        <members>*</members> 
-        <name>FlowDefinition</name>
-    </types><types>
-        <members>*</members> 
-        <name>Flow</name>
-    </types><types>
         <members>*</members> 
         <name>Weblink</name>
-    </types>
-    <types>
-        <members>*</members> 
-        <name>QuickAction</name>
     </types>
     
     <version>64.0</version>

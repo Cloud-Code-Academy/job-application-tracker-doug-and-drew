@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Interview_Format__c</fullName>
+    <externalId>false</externalId>
+    <label>Interview Format</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Behavioural</fullName>
+                <default>false</default>
+                <label>Behavioural</label>
+            </value>
+            <value>
+                <fullName>Competency</fullName>
+                <default>false</default>
+                <label>Competency</label>
+            </value>
+            <value>
+                <fullName>Group</fullName>
+                <default>false</default>
+                <label>Group</label>
+            </value>
+            <value>
+                <fullName>Informal</fullName>
+                <default>false</default>
+                <label>Informal</label>
+            </value>
+            <value>
+                <fullName>Panel</fullName>
+                <default>false</default>
+                <label>Panel</label>
+            </value>
+            <value>
+                <fullName>Phone</fullName>
+                <default>false</default>
+                <label>Phone</label>
+            </value>
+            <value>
+                <fullName>Traditional 1:1</fullName>
+                <default>false</default>
+                <label>Traditional 1:1</label>
+            </value>
+            <value>
+                <fullName>Video/Remote</fullName>
+                <default>false</default>
+                <label>Video/Remote</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

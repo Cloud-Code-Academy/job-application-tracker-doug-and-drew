@@ -116,6 +116,21 @@
         <visible>true</visible>
     </applicationVisibilities>
     <custom>false</custom>
+    	<fieldPermissions>
+        <editable>true</editable>
+        <field>Activity.Interview_Format__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Activity.Interview_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Activity.Interviewer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Application_Contact__c.Is_Primary__c</field>
