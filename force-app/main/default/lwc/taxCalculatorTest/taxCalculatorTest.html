@@ -1,0 +1,51 @@
+<template>
+  <lightning-card>
+    <h1 class="titleFont slds-text-align_center" >Net Income Calculator</h1>
+    <!-- Body -->
+    <div class="slds-var-p-around_small">
+        <div class="slds-form-element">
+            <span class="slds-slider__value slider-value" aria-live="polite" aria-atomic="true">
+                
+            </span>
+
+      <!-- Input information -->
+            <div class="slds-var-p-horizontal_small slds-var-p-around_medium">
+                <lightning-input
+                type="number"
+                name="Salary"
+                label="Salary"
+                value={grossSalary}
+                onchange={handleChange}
+                ></lightning-input>
+
+                <!-- <lightning-button
+                variant="brand"
+                label="Calculate"
+                title="Calculate"
+                slot="actions"
+                onclick={calculateNetIncome}
+                ></lightning-button> -->
+            </div>
+      </div>
+
+      <!-- Display results (body content, not footer) -->
+    
+      <p class="slds-text-heading_medium">
+        Net Income:
+        <span class="slds-text-color_destructive"> {netIncome}</span>
+      </p>
+
+      <!-- <h1 class="slds-text-heading_medium">Breakdown</h1> -->
+        <div class="slds-var-p-around_medium">
+            <p>Federal: {federalTaxes}</p>
+            <p>Taxable Income: {taxableIncome}</p>
+            <p>Effective Rate: {effectiveTaxRate}</p>
+            <p>Marginal Rate: {marginalTaxRate}</p>
+        </div>     
+    </div> <!-- ✅ closes slds-var-p-around_medium -->
+
+    <!-- Single footer as a direct child -->
+    <div slot="footer">
+    </div>
+  </lightning-card>
+</template>

@@ -1,0 +1,15 @@
+@import "./cosmos.hooks.custom-props.css";
+@import "./cosmos.shared.hooks.custom-props.css";
+@import "./cosmos.component.hooks.custom-props.css";
+
+
+
+p   {
+    font-size: font-size(18);
+    font-weight: bold;
+}
+
+.titleFont {
+    font-size: font-size(32);
+    font-weight: bold;
+}
