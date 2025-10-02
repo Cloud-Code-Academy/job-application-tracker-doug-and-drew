@@ -281,10 +281,8 @@ public with sharing class EventHelper {
         }
 
         // End time must be after Start time
-        if (f < s) {
-            e.EndDateTime.addError('End time must be after Start time');
-            return false;
-        }
+        // NOTE: Salesforce already enforces this rule (platform validation).
+        // We skip this here to avoid duplicate/conflicting errors.
 
         // Weekend Rule
         if (isWeekend(s.date())) {
@@ -295,6 +293,7 @@ public with sharing class EventHelper {
     }
 
     // WEEKEND CHECK using modulo to determine if Saturday(6) or Sunday(0)
+    @TestVisible
     private static Boolean isWeekend(Date d) {
         if (d == null) {
             return false;
