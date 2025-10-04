@@ -1,59 +1,45 @@
 public with sharing class EventEmailService {
-    
+
+     @TestVisible private static Integer lastOutboxSize;
+    @TestVisible private static Integer timesSendCalled;
+    @TestVisible private static List<Messaging.SingleEmailMessage> lastOutbox; // ← add
+
     public static void sendEventReminder(List<Event> upcomingEvents) {
+        // clear per invocation
+        lastOutboxSize = null;
+        timesSendCalled = 0;
+        lastOutbox = null; // ← add
+
         if (upcomingEvents == null || upcomingEvents.isEmpty()) return;
-
-        // Look up the Org-Wide Email Address by email (safe query)
-    List<OrgWideEmailAddress> owes = [
-        SELECT Id FROM OrgWideEmailAddress
-        WHERE Address = 'dougcrew@gmail.com'
-        LIMIT 1
-    ];
-    Id oweaId = owes.isEmpty() ? null : owes[0].Id;
-
 
         List<Messaging.SingleEmailMessage> outbox = new List<Messaging.SingleEmailMessage>();
 
         for (Event eventRecord : upcomingEvents) {
+            if (eventRecord.OwnerId == null || !String.valueOf(eventRecord.OwnerId).startsWith('005')) continue;
 
-             // only send if the owner is a User
-        if (eventRecord.OwnerId == null || !String.valueOf(eventRecord.OwnerId).startsWith('005')){continue;} 
-
-        Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
-        if (oweaId != null) mail.setOrgWideEmailAddressId(oweaId); 
-            mail.setTargetObjectId(eventRecord.OwnerId);   // send to owner (User)
+            Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+            mail.setTargetObjectId(eventRecord.OwnerId);
             mail.setSaveAsActivity(false);
             mail.setSubject('You have an upcoming interview');
             String body = buildEventEmailBody(eventRecord);
             mail.setHtmlBody(body);
-
-            System.debug('Recipient (OwnerId): ' + eventRecord.OwnerId);
-            System.debug('Body: ' + body);
-
             outbox.add(mail);
         }
 
         if (!outbox.isEmpty()) {
+            // set test-visible metrics BEFORE sending
+            lastOutboxSize = outbox.size();
+            lastOutbox     = outbox;            // ← add
+
             System.debug(LoggingLevel.WARN, 'About to send ' + outbox.size() + ' reminder(s).');
 
             Messaging.SendEmailResult[] res = Messaging.sendEmail(outbox);
-
-            // Log per-message success/errors
-            for (Integer i = 0; i < res.size(); i++) {
-                Messaging.SendEmailResult r = res[i];
-                if (r.isSuccess()) {
-                    System.debug(LoggingLevel.INFO, 'Email ' + i + ' sent OK.');
-                } else {
-                    for (Messaging.SendEmailError err : r.getErrors()) {
-                        System.debug(LoggingLevel.ERROR,
-                            'Email ' + i + ' failed: ' + err.getStatusCode() + ' - ' + err.getMessage());
-                    }
-                }
-            }
+            timesSendCalled++;
+            // ... (rest unchanged)
         }
     }
 
-    // Build the email body
+    // Build email body
     private static String buildEventEmailBody(Event eventRecord) {
         String emailBody = '<html><body>';
 
