@@ -20,7 +20,6 @@
     <label>Job Lander</label>
     <navType>Console</navType>
     <tabs>standard-home</tabs>
-    <tabs>Get_the_Latest_Jobs</tabs>
     <tabs>Job_Application__c</tabs>
     <tabs>Job_Posting__c</tabs>
     <tabs>Application_Contact__c</tabs>
@@ -34,9 +33,6 @@
         <mappings>
             <fieldName>Job_Application__c</fieldName>
             <tab>Application_Contact__c</tab>
-        </mappings>
-        <mappings>
-            <tab>Get_the_Latest_Jobs</tab>
         </mappings>
         <mappings>
             <tab>Job_Application__c</tab>
