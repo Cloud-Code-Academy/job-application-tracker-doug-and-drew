@@ -99,13 +99,5 @@ export default class SalaryCalculator extends LightningElement {
     this.effectiveTaxRate = effectiveTaxRate; // e.g., 22.53
     this.marginalTaxRate = marginalRate * 100; // e.g., 24.0
   }
-
-  // If you prefer showing % with a percent sign:
-  // get effectiveRateDecimal() {
-  //   return this.effectiveTaxRate == null ? null : this.effectiveTaxRate / 10;
-  // }
-  // get marginalRateDecimal() {
-  //   return this.marginalTaxRate == null ? null : this.marginalTaxRate / 100;
-  // }
   
 }
