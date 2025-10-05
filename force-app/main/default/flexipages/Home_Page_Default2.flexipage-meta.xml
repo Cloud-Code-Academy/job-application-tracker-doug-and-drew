@@ -48,8 +48,16 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>fetchJobs</componentName>
-                <identifier>c_fetchJobs</identifier>
+                <componentInstanceProperties>
+                    <name>flowLayout</name>
+                    <value>oneColumn</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>flowName</name>
+                    <value>Fetch_Jobs_Screen_Flow</value>
+                </componentInstanceProperties>
+                <componentName>flowruntime:interview</componentName>
+                <identifier>flowruntime_interview</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
