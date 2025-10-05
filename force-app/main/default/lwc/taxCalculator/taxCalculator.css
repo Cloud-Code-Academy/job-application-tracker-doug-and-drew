@@ -1,0 +1,23 @@
+@import "./cosmos.hooks.custom-props.css";
+@import "./cosmos.shared.hooks.custom-props.css";
+@import "./cosmos.component.hooks.custom-props.css";
+
+
+:host {
+    --slds-color_background_alt-inverse: blue !important;
+    --slds-calc-font-weight-heading-small: var(--slds-g-font-weight-bold) !important;
+    --slds-calc-font-size-heading-medium: 40px !important;
+    --slds-calc-font-weight-heading-medium: var(--slds-g-font-weight-bold) !important;
+}
+.heading .slds-text-heading_small{
+    font-size: font-size(32) !important;
+    font-weight: var(--slds-g-font-weight-bold) !important;
+}
+
+.background-color {
+    background-color: var(--slds-color_background_alt-inverse) !important;
+}
+/* .narrow-input {
+  width: small !important;
+  min-width: 10rem;
+} */

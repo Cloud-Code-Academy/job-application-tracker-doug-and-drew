@@ -55,22 +55,20 @@
                 <identifier>RecordLocation_cField</identifier>
             </fieldInstance>
         </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Posting_URL__c</fieldItem>
-                <identifier>RecordPosting_URL_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
         <name>Facet-47cd71f1-7ca0-420b-b3e5-664df430b855</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <componentInstanceProperties>
+                    <name>actionNames</name>
+                    <valueList>
+                        <valueListItems>
+                            <value>Job_Posting__c.Create_Job_Application</value>
+                        </valueListItems>
+                    </valueList>
+                </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>numVisibleActions</name>
                     <value>3</value>
@@ -131,16 +129,6 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Posting_URL__c</fieldItem>
-                <identifier>RecordPosting_URL_cField2</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
                 <fieldItem>Record.Salary__c</fieldItem>
                 <identifier>RecordSalary_cField2</identifier>
             </fieldInstance>
@@ -153,6 +141,16 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.OwnerId</fieldItem>
                 <identifier>RecordOwnerIdField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.JoobleId__c</fieldItem>
+                <identifier>RecordJoobleId_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-26d9b453-a5d7-485c-ba45-522bf5dfbea1</name>
@@ -180,6 +178,34 @@
             </componentInstance>
         </itemInstances>
         <name>Facet-1de51bf4-69c4-412e-b162-8583c1f16727</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Posting_URL__c</fieldItem>
+                <identifier>RecordPosting_URL_cField2</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-45375430-1400-4db0-bfd3-3be156166edb</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-45375430-1400-4db0-bfd3-3be156166edb</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+                <identifier>flexipage_column6</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-387a4951-a97c-4bf2-8dba-c65322e59aa3</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -279,6 +305,24 @@
                 </componentInstanceProperties>
                 <componentName>flexipage:fieldSection</componentName>
                 <identifier>flexipage_fieldSection</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>columns</name>
+                    <value>Facet-387a4951-a97c-4bf2-8dba-c65322e59aa3</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>horizontalAlignment</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>label</name>
+                    <value>Posting Link</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:fieldSection</componentName>
+                <identifier>flexipage_fieldSection4</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
