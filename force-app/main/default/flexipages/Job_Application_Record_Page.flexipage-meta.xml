@@ -638,8 +638,8 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>taxCalculatorTest</componentName>
-                <identifier>c_taxCalculatorTest</identifier>
+                <componentName>taxCalculator</componentName>
+                <identifier>c_taxCalculator</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
