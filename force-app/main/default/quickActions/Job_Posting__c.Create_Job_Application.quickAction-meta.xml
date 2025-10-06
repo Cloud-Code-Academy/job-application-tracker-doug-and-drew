@@ -4,6 +4,10 @@
         <field>Applicant__c</field>
         <formula>$User.Id</formula>
     </fieldOverrides>
+    <fieldOverrides>
+        <field>Company__c</field>
+        <formula>Job_Posting__c.Company_Name__c</formula>
+    </fieldOverrides>
     <label>Create Job Application</label>
     <optionsCreateFeedItem>true</optionsCreateFeedItem>
     <quickActionLayout>
