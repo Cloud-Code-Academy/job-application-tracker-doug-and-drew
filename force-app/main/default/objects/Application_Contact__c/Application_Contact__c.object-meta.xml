@@ -152,7 +152,7 @@
     <description>Junction object that joins Job Applications to Contacts so that multiple Contacts can be associated to each Job Application</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableFeeds>false</enableFeeds>
+    <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
@@ -164,6 +164,7 @@
     <nameField>
         <displayFormat>AppCon-{00000}</displayFormat>
         <label>Application Contact Name</label>
+        <trackFeedHistory>true</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
