@@ -674,6 +674,15 @@
                         <valueListItems>
                             <value>NAME</value>
                         </valueListItems>
+                        <valueListItems>
+                            <value>Contact__c</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>Is_Primary__c</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>Email__c</value>
+                        </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
