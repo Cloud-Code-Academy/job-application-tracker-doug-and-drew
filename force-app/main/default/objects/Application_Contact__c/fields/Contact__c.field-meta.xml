@@ -9,6 +9,7 @@
     <relationshipLabel>Application Contacts</relationshipLabel>
     <relationshipName>Application_Contacts</relationshipName>
     <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Lookup</type>
