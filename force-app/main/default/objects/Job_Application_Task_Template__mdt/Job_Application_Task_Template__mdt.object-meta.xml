@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Stores the templates used to create Tasks based on the different statuses of the Job Application record.  Used in order to make quick changes to the values of the task fields and add or remove tasks as needed without requiring a deployment.</description>
+    <label>Job Application Task Template</label>
+    <pluralLabel>Job Application Task Templates</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

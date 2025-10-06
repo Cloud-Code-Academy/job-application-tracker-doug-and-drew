@@ -1,0 +1,82 @@
+<template>
+  <lightning-card>
+    <div class="slds-var-p-around_small">
+    <h1 class="slds-text-heading_medium slds-text-align_center slds-var-p-bottom_small" >Net Income Calculator</h1>
+    <!-- Body -->
+
+      <!-- Input information -->
+          <lightning-layout horizontal-align="center" vertical-align="center" class="slds-var-p-around_x-small">
+            <lightning-layout-item flexibility="auto" class="slds-var-m-right_small">
+            </lightning-layout-item>
+              <lightning-layout-item flexibility="auto" class="slds-var-p-bottom_x-small">
+                <lightning-input
+                  class="slds-text-heading_small"
+                  type="number"
+                  formatter="currency"
+                  name="grossSalary"
+                  label="Gross Salary"
+                  value={grossSalary}
+                  onchange={handleChange}>
+                </lightning-input>
+              </lightning-layout-item>
+          </lightning-layout>
+          <ul class="slds-list_vertical slds-has-dividers_around-space slds-var-p-around_small">
+                <li class="slds-grid slds-grid_align-spread slds-var-p-vertical_small	">
+                  <span class="heading slds-text-heading_small">Net Income: </span>
+                  <lightning-formatted-number
+                  class="heading slds-text-heading_small"
+                  value={netIncome} 
+                  format-style="currency"
+                  currency-code="USD"
+                  maximum-fraction-digits="2"
+                  ></lightning-formatted-number>
+                </li> 
+                <li class="slds-grid slds-grid_align-spread slds-var-p-vertical_xx-small">
+                <span class="slds-text-title_bold">Federal Withholding: </span>
+                <lightning-formatted-number
+                  class="slds-text-title_bold"
+                  value={federalWithholding}
+                  format-style="currency"
+                  currency-code="USD"
+                  minimum-fraction-digits="2"
+                  maximum-fraction-digits="2">
+                </lightning-formatted-number>
+              </li>
+              <li class="slds-grid slds-grid_align-spread slds-var-p-vertical_xx-small">
+                <span class="slds-text-title_bold">Social Security: </span>
+                <lightning-formatted-number
+                  class="slds-text-title_bold"
+                  value={socialSecurity}
+                  format-style="currency"
+                  currency-code="USD"
+                  minimum-fraction-digits="2"
+                  maximum-fraction-digits="2">
+                </lightning-formatted-number>
+              </li>              
+              <li class="slds-grid slds-grid_align-spread slds-var-p-vertical_xx-small">
+               <span class="slds-text-title_bold">Medicare Witholding: </span>
+                <lightning-formatted-number
+                  class="slds-text-title_bold"
+                  value={medicare}
+                  format-style="currency"
+                  currency-code="USD"
+                  minimum-fraction-digits="2"
+                  maximum-fraction-digits="2">
+                </lightning-formatted-number>
+              </li>
+              <li class="slds-grid slds-grid_align-spread slds-var-p-vertical_xx-small">
+                <span class="slds-text-title_bold">Effective Tax Rate: </span>
+                <lightning-formatted-number
+                  class="slds-text-title_bold"
+                  value={effectiveTaxRate}
+                  read-only="true"
+                  format-style="percent"
+                  currency-code="USD"
+                  minimum-fraction-digits="2"
+                  maximum-fraction-digits="2">
+                </lightning-formatted-number>
+              </li>  
+            </ul>           
+        </div> 
+  </lightning-card>
+</template>
