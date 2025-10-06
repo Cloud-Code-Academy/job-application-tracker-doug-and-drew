@@ -68,8 +68,7 @@
     <applicationVisibilities>
         <application>standard__LightningSalesConsole</application>
         <default>false</default>
-        <visible>
-        true</visible>
+        <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>standard__LightningService</application>
@@ -122,7 +121,7 @@
         <visible>true</visible>
     </applicationVisibilities>
     <custom>false</custom>
-    	<fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Activity.Interview_Format__c</field>
         <readable>true</readable>
@@ -230,34 +229,28 @@
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
-        <allowRead>
-        true</allowRead>
+        <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Application_Contact__c</object>
-        <viewAllRecords>
-        true</viewAllRecords>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
-        <allowRead>
-        true</allowRead>
+        <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Job_Application__c</object>
-        <viewAllRecords>
-        true</viewAllRecords>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
-        <allowRead>
-        true</allowRead>
+        <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Job_Posting__c</object>
-        <viewAllRecords>
-        true</viewAllRecords>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <tabVisibilities>
         <tab>Application_Contact__c</tab>
