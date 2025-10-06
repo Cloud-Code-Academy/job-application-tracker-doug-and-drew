@@ -110,6 +110,22 @@
         </itemInstances>
         <itemInstances>
             <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Email__c</fieldItem>
+                <identifier>RecordEmail_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentName>flexipage:blankSpace</componentName>
+                <identifier>flexipage_blankSpace2</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
                 <fieldItem>Record.Job_Application__r.Job_Posting__r.Posting_URL__c</fieldItem>
                 <identifier>RecordJob_Application_rJob_Posting_rPosting_URL_cField</identifier>
             </fieldInstance>
@@ -130,12 +146,8 @@
         </itemInstances>
         <itemInstances>
             <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Is_Primary__c</fieldItem>
-                <identifier>RecordIs_Primary__cField</identifier>
+                <fieldItem>Record.Contact__r.Title</fieldItem>
+                <identifier>RecordContact_rTitleField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -146,14 +158,18 @@
         </itemInstances>
         <itemInstances>
             <fieldInstance>
-                <fieldItem>Record.Contact__r.Title</fieldItem>
-                <identifier>RecordContact_rTitleField</identifier>
+                <fieldItem>Record.Contact__r.Email</fieldItem>
+                <identifier>RecordContact_rEmailField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
-                <fieldItem>Record.Contact__r.Email</fieldItem>
-                <identifier>RecordContact_rEmailField</identifier>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Is_Primary__c</fieldItem>
+                <identifier>RecordIs_Primary__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>

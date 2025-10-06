@@ -236,7 +236,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
+                    <value>readonly</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Company__c</fieldItem>
                 <identifier>RecordCompany__cField</identifier>
@@ -294,18 +294,18 @@
         </itemInstances>
         <itemInstances>
             <fieldInstance>
+                <fieldItem>Record.Job_Posting__r.Posting_URL__c</fieldItem>
+                <identifier>RecordJob_Posting_rPosting_URL_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Notes__c</fieldItem>
                 <identifier>RecordNotes_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldItem>Record.Job_Posting__r.Posting_URL__c</fieldItem>
-                <identifier>RecordJob_Posting_rPosting_URL_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-c6b005cb-a1de-4c08-a92b-2033ab2ec852</name>
