@@ -399,6 +399,12 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <componentName>taxCalculator</componentName>
+                <identifier>c_taxCalculator</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
                 <componentInstanceProperties>
                     <name>relatedListComponentOverride</name>
                     <value>NONE</value>
